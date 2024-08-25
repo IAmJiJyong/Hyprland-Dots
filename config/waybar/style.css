@@ -1,0 +1,209 @@
+@import "colors-waybar.css";
+
+/* margin: top right bottom left */
+/* Spacing outside the element */
+
+/* padding: top right bottom left */
+/* Spacing inside the element */
+
+* {
+  font-family:
+    FiraCode Nerd Font,
+    FontAwesome;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+window#waybar {
+  background-color: @background;
+  color: @bg0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 0px 0px 15px 15px;
+  transition-duration: 0.5s;
+
+  border-bottom-width: 5px;
+  border-bottom-color: @color1;
+  border-bottom-style: solid;
+}
+
+#clock,
+#custom-wttr,
+#custom-wallpaper,
+#custom-swaync,
+#workspaces,
+#window,
+#wireplumber,
+#pulseaudio,
+#network,
+#tray,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#battery {
+  /* background-color: @color1; */
+  color: @foreground;
+
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 7px;
+  margin-bottom: 12px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 10px;
+
+  border-bottom-width: 5px;
+  /* border-bottom-color: @color2; */
+  border-bottom-style: solid;
+}
+
+#workspaces {
+  background-color: @color1;
+  color: @foreground;
+  border-bottom-color: @color2;
+  padding: 0px;
+}
+
+#workspaces button.active {
+  background-color: @color3;
+  color: @cursor;
+
+  border-radius: 10px;
+
+  margin-bottom: -5px;
+
+  border-bottom-width: 5px;
+  border-bottom-color: @color4;
+  border-bottom-style: solid;
+}
+
+#workspaces button:hover {
+  background-color: @color7;
+  color: @cursor;
+
+  border-radius: 10px;
+
+  margin-bottom: -5px;
+
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+}
+
+#cpu,
+#memory,
+#disk {
+  background-color: @color5;
+  /* color: @foreground; */
+  border-bottom-color: @color6;
+}
+
+#clock,
+#custom-wttr {
+  background-color: @color8;
+  /* color: @foreground; */
+  border-bottom-color: @color9;
+}
+
+#wireplumber,
+#pulseaudio,
+#backlight,
+#battery {
+  background-color: @color2;
+  /* color: @foreground; */
+  border-bottom-color: @color7;
+}
+
+#custom-swaync,
+#network,
+#tray {
+  background-color: @color6;
+  /* color: @foreground; */
+  border-bottom-color: @color9;
+}
+
+tooltip {
+  background: @background;
+  border-radius: 10px;
+  border: 3px solid @color1;
+  color: @foreground;
+}
+
+tooltip label {
+  color: @color7;
+}
+
+#custom-wallpaper {
+  background-color: @color11;
+  /* color: @foreground; */
+  border-bottom-color: @color13;
+}
+
+#window {
+  background-color: @color9;
+  border-bottom-color: @color4;
+}
+
+window#waybar.firefox #window {
+  background: rgb(225, 6, 102);
+  background: linear-gradient(
+    52deg,
+    rgba(225, 6, 102, 1) 0%,
+    rgba(255, 81, 51, 1) 51%,
+    rgba(255, 224, 65, 1) 93%
+  );
+}
+
+window#waybar.discord #window {
+  background: #5865f2;
+  color: @ffffff;
+}
+
+window#waybar.Spotify #window {
+  background: #1ed760;
+}
+
+window#waybar.org\.kde\.konsole #window {
+  background: #232228;
+  color: #1ed760;
+}
+
+window#waybar.Code #window {
+  background: rgb(0, 116, 181);
+  background: linear-gradient(
+    31deg,
+    rgba(0, 116, 181, 1) 0%,
+    rgba(0, 131, 208, 1) 46%,
+    rgba(4, 148, 212, 1) 58%,
+    rgba(36, 171, 242, 1) 100%
+  );
+  color: #ffffff;
+}
+
+window#waybar.org\.kde\.dolphin #window {
+  background: rgb(246, 247, 247);
+  background: linear-gradient(
+    45deg,
+    rgba(246, 247, 247, 1) 19%,
+    rgba(71, 156, 236, 1) 59%,
+    rgba(35, 98, 146, 1) 100%
+  );
+  color: #000000;
+}
+
+window#waybar.Microsoft-edge #window {
+  background: rgb(64, 206, 103);
+  background: linear-gradient(
+    207deg,
+    rgba(64, 206, 103, 1) 0%,
+    rgba(49, 193, 227, 1) 32%,
+    rgba(5, 124, 214, 1) 75%,
+    rgba(14, 74, 134, 1) 94%
+  );
+  color: #ffffff;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  border-bottom-color: transparent;
+}

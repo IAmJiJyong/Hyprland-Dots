@@ -1,0 +1,298 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 60,
+  "margin-left": 50,
+  "margin-right": 50,
+  "modules-left": [
+    "clock",
+    "custom/wttr",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "group/efficacy",
+    "group/hardware",
+    "group/system",
+    "custom/wallpaper",
+  ],
+  "group/efficacy": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory",
+      "disk"
+    ],
+  },
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "backlight",
+      "battery"
+    ],
+  },
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "network",
+      "tray",
+      "custom/swaync"
+    ],
+  },
+  "custom/wallpaper": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/WallpaperRandom.sh ~/Pictures/wallpapers",
+    "on-click-right": "~/.config/hypr/scripts/WallpaperSelect.sh ~/Pictures/wallpapers",
+  },
+  "mpris": {
+    "interval": 1,
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "title-len": 20,
+    "artist-len": 20,
+    "ignored-players": [
+      "firefox"
+    ],
+    "player-icons": {
+      "plasma-browser-integration": " ",
+      "spotify": "󰓇",
+      "default": "▶",
+      "mpv": "🎵",
+    },
+    "status-icons": {
+      "paused": "⏸️",
+    },
+  },
+  "clock": {
+    "format": "{:%H:%M}  ",
+    "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+  },
+  "custom/wttr": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "~/.config/hypr/scripts/wttr.py",
+    "return-type": "json",
+  },
+  "cpu": {
+    "interval": 1,
+    "format": " {usage}%",
+  },
+  "memory": {
+    "interval": 1,
+    "format": "﬙ {percentage}%",
+    "states": {
+      "warning": 85,
+    },
+  },
+  "disk": {
+    "interval": 30,
+    "format": " {used}",
+    "path": "/home/iamjijyong",
+    "tooltip": true,
+    "tooltip-format": "{used}/{total} => {path} {percentage_used}%",
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "helvum",
+    "max-volume": 150,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ],
+    },
+    "scroll-step": 0.2,
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "󰸈 {volume}%",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ],
+    },
+    "scroll-step": 1,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ],
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃞 ",
+      "󰃟",
+      "󰃝",
+      "󰃠"
+    ],
+    "tooltip": false,
+  },
+  "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "max-length": 10,
+    "format": "{icon} {capacity}%",
+    "format-warning": "{icon} {capacity}%",
+    "format-critical": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {capacity}%",
+    "format-full": " 100%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+  },
+  "network": {
+    "interval": 1,
+    "format-wifi": " {icon} {essid}",
+    "format-ethernet": " 󰈀  {ifname} ",
+    "format-linked": " {icon} {essid} (No IP)",
+    "format-disconnected": " 󰲛 Disconnected",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "on-click": "konsole -e nmtui",
+    "tooltip": true,
+    "tooltip-format-wifi": "{ifname} {signalStrength}% {bandwidthTotalBytes}",
+    "tooltip-format-ethernet": "{ifname} {bandwidthTotalBytes}",
+  },
+  "tray": {
+    "icon-size": 24,
+    "spacing": 5,
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": " ",
+      "dnd-notification": "<span foreground='gray'><span foreground='red'><sup></sup></span></span>",
+      "dnd-none": "<span foreground='gray'> </span>",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "<span foreground='gray'> </span>",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "<span foreground='gray'> </span>",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    /* "all-outputs": true, */
+    // "active-only": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "壹",
+      "2": "貳",
+      "3": "參",
+      "4": "肆",
+      "5": "伍",
+      "6": "陸",
+      "7": "柒",
+      "8": "捌",
+      "9": "玖",
+      "urgent": "",
+      "focused": "",
+      "default": "",
+    },
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 20,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹 $1",
+      "(.*) — Konsole": " [$1]",
+      "(.*) - Discord": " $1",
+      "(.*) — Dolphin": " $1",
+      "(.*) - Visual Studio Code": "󰨞 $1",
+      "(.*) - Microsoft​ Edge": " $1",
+    },
+    "separate-outputs": true,
+  },
+  "custom/swaync": {
+    "tooltip": true,
+    "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+    "format": "{icon} {}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+}
