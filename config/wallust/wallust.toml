@@ -88,6 +88,9 @@ waybar.target = '~/.config/waybar/colors-waybar.css'
 hyprland.template = 'colors-hyprland.conf'
 hyprland.target = '~/.config/hypr/colors-hyprland.conf'
 
+kitty.template = 'colors-kitty.conf'
+kitty.target = '~/.config/kitty/colors-kitty.conf'
+
 # template: A relative path that points to a file where wallust.toml is located, usually at `~/.config/wallust/`
 # target: Absolute path in which to place a file with generated templated values
 # NOTE: prefer '' over "" for paths, avoids escaping.

@@ -5,42 +5,28 @@
   "margin-left": 50,
   "margin-right": 50,
   "modules-left": [
-    "clock",
-    "custom/wttr",
-    "hyprland/window"
-  ],
-  "modules-center": [
-    "hyprland/workspaces"
-  ],
-  "modules-right": [
-    "group/efficacy",
-    "group/hardware",
-    "group/system",
     "custom/wallpaper",
+    "hyprland/workspaces",
+    "hyprland/window",
   ],
+  "modules-center": ["clock", "custom/wttr", "group/music"],
+  "modules-right": ["group/efficacy", "group/hardware", "group/system"],
   "group/efficacy": {
     "orientation": "horizontal",
-    "modules": [
-      "cpu",
-      "memory",
-      "disk"
-    ],
+    "modules": ["cpu", "memory", "disk", "network"],
   },
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": [
-      "pulseaudio",
-      "backlight",
-      "battery"
-    ],
+    "modules": ["pulseaudio", "backlight", "battery"],
   },
   "group/system": {
     "orientation": "horizontal",
-    "modules": [
-      "network",
-      "tray",
-      "custom/swaync"
-    ],
+    "modules": ["tray", "custom/swaync"],
+  },
+  "group/music": {
+    "orientation": "inherit",
+    "click-to-reveal": true,
+    "modules": ["mpris", "cava"],
   },
   "custom/wallpaper": {
     "format": " ",
@@ -49,23 +35,34 @@
     "on-click-right": "~/.config/hypr/scripts/WallpaperSelect.sh ~/Pictures/wallpapers",
   },
   "mpris": {
-    "interval": 1,
-    "format": "{player_icon} {dynamic}",
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
-    "title-len": 20,
-    "artist-len": 20,
-    "ignored-players": [
-      "firefox"
-    ],
+    "interval": 10,
+    "format": "{player_icon}  ",
+    // "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "format-paused": "{status_icon} <i>{player_icon} </i>",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "scroll-step": 5.0,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "smooth-scrolling-threshold": 1,
     "player-icons": {
-      "plasma-browser-integration": " ",
-      "spotify": "󰓇",
-      "default": "▶",
-      "mpv": "🎵",
+      "chromium": "",
+      "default": "",
+      "firefox": "",
+      "kdeconnect": "",
+      "mopidy": "",
+      "mpv": "",
+      "spotify": "",
+      "vlc": "󰕼",
     },
     "status-icons": {
-      "paused": "⏸️",
+      "paused": "󰐎",
+      "playing": "",
+      "stopped": "",
     },
+    // "ignored-players": ["firefox"]
+    "max-length": 30,
   },
   "clock": {
     "format": "{:%H:%M}  ",
@@ -94,10 +91,14 @@
   },
   "custom/wttr": {
     "format": "{}",
-    "tooltip": true,
+    "format-alt": "{alt}: {}",
+    "format-alt-click": "click",
     "interval": 3600,
-    "exec": "~/.config/hypr/scripts/wttr.py",
     "return-type": "json",
+    "exec": "~/.config/hypr/scripts/Weather.sh",
+    //"exec": "~/.config/hypr/UserScripts/Weather.py",
+    "exec-if": "ping wttr.in -c1",
+    "tooltip": true,
   },
   "cpu": {
     "interval": 1,
@@ -129,11 +130,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ],
+      "default": ["", "", ""],
     },
     "scroll-step": 0.2,
   },
@@ -148,28 +145,17 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ],
+      "default": ["", "", ""],
     },
     "scroll-step": 1,
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol",
-    "ignored-sinks": [
-      "Easy Effects Sink"
-    ],
+    "ignored-sinks": ["Easy Effects Sink"],
   },
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
-    "format-icons": [
-      "󰃞 ",
-      "󰃟",
-      "󰃝",
-      "󰃠"
-    ],
+    "format-icons": ["󰃞 ", "󰃟", "󰃝", "󰃠"],
     "tooltip": false,
   },
   "battery": {
@@ -186,18 +172,7 @@
     "format-plugged": " {capacity}%",
     "format-alt": "{icon} {capacity}%",
     "format-full": " 100%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
+    "format-icons": ["", "", "", "", "", "", "", "", "", ""],
   },
   "network": {
     "interval": 1,
@@ -205,13 +180,7 @@
     "format-ethernet": " 󰈀  {ifname} ",
     "format-linked": " {icon} {essid} (No IP)",
     "format-disconnected": " 󰲛 Disconnected",
-    "format-icons": [
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
-    ],
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "on-click": "konsole -e nmtui",
     "tooltip": true,
     "tooltip-format-wifi": "{ifname} {signalStrength}% {bandwidthTotalBytes}",
@@ -280,13 +249,13 @@
     "format": "{icon} {}",
     "format-icons": {
       "notification": "<span foreground='red'><sup></sup></span>",
-      "none": "",
+      "none": "",
       "dnd-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-none": "",
+      "dnd-none": "",
       "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "",
+      "inhibited-none": "",
       "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": "",
+      "dnd-inhibited-none": "",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
@@ -294,5 +263,12 @@
     "on-click": "sleep 0.1 && swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true,
+  },
+  "cava": {
+    "autosens": 1,
+    "bars": 14,
+    "bar_delimiter": 0,
+    "hide_on_silence": true,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
   },
 }

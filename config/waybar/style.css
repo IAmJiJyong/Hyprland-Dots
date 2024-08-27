@@ -7,41 +7,22 @@
 /* Spacing inside the element */
 
 * {
-  font-family:
-    FiraCode Nerd Font,
-    FontAwesome;
+  font-family: FiraCode Nerd Font;
   font-size: 14px;
   font-weight: bold;
 }
 
-window#waybar {
-  background-color: @background;
-  color: @bg0;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  border-radius: 0px 0px 15px 15px;
-  transition-duration: 0.5s;
+/* Compenents */
 
-  border-bottom-width: 5px;
-  border-bottom-color: @color1;
-  border-bottom-style: solid;
-}
-
+#efficacy,
+#system,
+#hardware,
 #clock,
+#music,
 #custom-wttr,
 #custom-wallpaper,
-#custom-swaync,
 #workspaces,
-#window,
-#wireplumber,
-#pulseaudio,
-#network,
-#tray,
-#cpu,
-#memory,
-#disk,
-#backlight,
-#battery {
+#window {
   /* background-color: @color1; */
   color: @foreground;
 
@@ -58,11 +39,65 @@ window#waybar {
   border-bottom-style: solid;
 }
 
+#efficacy {
+  background-color: @color5;
+  /* color: @foreground; */
+  border-bottom-color: @color6;
+}
+
+#hardware {
+  background-color: @color2;
+  /* color: @foreground; */
+  border-bottom-color: @color7;
+}
+
+#system {
+  background-color: @color6;
+  /* color: @foreground; */
+  border-bottom-color: @color9;
+}
+
+#pulseaudio,
+#backlight,
+#battery,
+#network,
+#cpu,
+#memory,
+#disk,
+#custom-swaync,
+#tray {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+#music {
+  background-color: @color11;
+  border-bottom-color: @color4;
+}
+
+#clock,
+#custom-wttr {
+  background-color: @color8;
+  /* color: @foreground; */
+  border-bottom-color: @color9;
+}
+
 #workspaces {
   background-color: @color1;
   color: @foreground;
   border-bottom-color: @color2;
   padding: 0px;
+}
+
+#custom-wallpaper {
+  background-color: @color11;
+  /* color: @foreground; */
+  border-bottom-color: @color13;
+}
+
+#window {
+  background-color: @color9;
+  border-bottom-color: @color4;
 }
 
 #workspaces button.active {
@@ -90,37 +125,7 @@ window#waybar {
   border-bottom-style: solid;
 }
 
-#cpu,
-#memory,
-#disk {
-  background-color: @color5;
-  /* color: @foreground; */
-  border-bottom-color: @color6;
-}
-
-#clock,
-#custom-wttr {
-  background-color: @color8;
-  /* color: @foreground; */
-  border-bottom-color: @color9;
-}
-
-#wireplumber,
-#pulseaudio,
-#backlight,
-#battery {
-  background-color: @color2;
-  /* color: @foreground; */
-  border-bottom-color: @color7;
-}
-
-#custom-swaync,
-#network,
-#tray {
-  background-color: @color6;
-  /* color: @foreground; */
-  border-bottom-color: @color9;
-}
+/* Tooltip */
 
 tooltip {
   background: @background;
@@ -131,17 +136,22 @@ tooltip {
 
 tooltip label {
   color: @color7;
+  font-size: 18px;
 }
 
-#custom-wallpaper {
-  background-color: @color11;
-  /* color: @foreground; */
-  border-bottom-color: @color13;
-}
+/* Window */
 
-#window {
-  background-color: @color9;
-  border-bottom-color: @color4;
+window#waybar {
+  background-color: @background;
+  color: @bg0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 0px 0px 15px 15px;
+  transition-duration: 0.5s;
+
+  border-bottom-width: 5px;
+  border-bottom-color: @color1;
+  border-bottom-style: solid;
 }
 
 window#waybar.firefox #window {
@@ -204,6 +214,11 @@ window#waybar.Microsoft-edge #window {
 }
 
 window#waybar.empty #window {
+  background-color: transparent;
+  border-bottom-color: transparent;
+}
+
+music#waybar.empty #window {
   background-color: transparent;
   border-bottom-color: transparent;
 }
