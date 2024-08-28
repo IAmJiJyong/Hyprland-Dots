@@ -98,5 +98,5 @@ main
 sleep 0.5
 "$script_dir/WallustSwww.sh"
 
-sleep 0.2
+sleep 0.5
 "$script_dir/Refresh.sh"

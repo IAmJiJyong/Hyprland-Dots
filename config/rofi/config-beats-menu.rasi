@@ -11,12 +11,12 @@ entry {
 
 /* ---- Window ---- */
 window {
-  width: 24%;
+  width: 30%;
 }
 
 /* ---- Listview ---- */
 listview {
   fixed-columns: false;
   colums: 1;
-  lines: 3;
+  lines: 9;
 }

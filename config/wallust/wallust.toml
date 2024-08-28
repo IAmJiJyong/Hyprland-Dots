@@ -22,7 +22,7 @@ backend = "kmeans"
 #  * labfast  - Variant of lab that avoids floating arithmetic thus faster operations but
 #                not that much precise result Images that work on lab labmixed could not
 #                have enough colors for labfast
-color_space = "lab"
+color_space = "lch"
 
 # Difference between similar colors, used by the colorspace:
 #  1          Not perceptible by human eyes.
@@ -79,11 +79,11 @@ palette = "dark16"
 #alpha = 100
 
 [templates]
-rofi.template = 'colors-rofi.rasi'
-rofi.target = '~/.config/rofi/wallust/colors-rofi.rasi'
-
 waybar.template = 'colors-waybar.css'
 waybar.target = '~/.config/waybar/colors-waybar.css'
+
+rofi.template = 'colors-rofi.rasi'
+rofi.target = '~/.config/rofi/wallust/colors-rofi.rasi'
 
 hyprland.template = 'colors-hyprland.conf'
 hyprland.target = '~/.config/hypr/colors-hyprland.conf'

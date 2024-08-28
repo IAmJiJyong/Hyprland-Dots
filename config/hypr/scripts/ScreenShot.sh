@@ -104,27 +104,56 @@ shotswappy() {
 	rm "$tmpfile"
 }
 
+showmenu(){
+	user_choice=$(printf "Screenshot now\nScreenshot in 5s\nScreenshot in 10s\nScreenshot of the window\nScreenshot of the active window\nScreenshot of the area" | rofi -dmenu -config ~/.config/rofi/config-beats-menu.rasi -p "Select Screenshot Method")
 
-if [[ ! -d "$dir" ]]; then
-	mkdir -p "$dir"
-fi
+  case "$user_choice" in
+    "Screenshot now")
+    	shotnow
+      ;;
+    "Screenshot in 5s")
+    	shot5
+      ;;
+    "Screenshot in 10s")
+    	shot10
+      ;;
+    "Screenshot of the window")
+    	shotwin
+      ;;
+    "Screenshot of the active window")
+    	shotactive
+      ;;
+    "Screenshot of the area")
+    	shotarea
+      ;;
+    *)
+      echo "Invalid choice"
+      ;;
+  esac
+}
 
-if [[ "$1" == "--now" ]]; then
-	shotnow
-elif [[ "$1" == "--in5" ]]; then
-	shot5
-elif [[ "$1" == "--in10" ]]; then
-	shot10
-elif [[ "$1" == "--win" ]]; then
-	shotwin
-elif [[ "$1" == "--area" ]]; then
-	shotarea
-elif [[ "$1" == "--active" ]]; then
-	shotactive
-elif [[ "$1" == "--swappy" ]]; then
-	shotswappy
-else
-	echo -e "Available Options : --now --in5 --in10 --win --area --active --swappy"
-fi
+showmenu;
+
+# if [[ ! -d "$dir" ]]; then
+# 	mkdir -p "$dir"
+# fi
+#
+# if [[ "$1" == "--now" ]]; then
+# 	shotnow
+# elif [[ "$1" == "--in5" ]]; then
+# 	shot5
+# elif [[ "$1" == "--in10" ]]; then
+# 	shot10
+# elif [[ "$1" == "--win" ]]; then
+# 	shotwin
+# elif [[ "$1" == "--area" ]]; then
+# 	shotarea
+# elif [[ "$1" == "--active" ]]; then
+# 	shotactive
+# elif [[ "$1" == "--swappy" ]]; then
+# 	shotswappy
+# else
+# 	echo -e "Available Options : --now --in5 --in10 --win --area --active --swappy"
+# fi
 
 exit 0

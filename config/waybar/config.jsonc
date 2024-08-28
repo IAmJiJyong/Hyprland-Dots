@@ -4,12 +4,8 @@
   "height": 60,
   "margin-left": 50,
   "margin-right": 50,
-  "modules-left": [
-    "custom/wallpaper",
-    "hyprland/workspaces",
-    "hyprland/window",
-  ],
-  "modules-center": ["clock", "custom/wttr", "group/music"],
+  "modules-left": ["custom/wallpaper", "clock", "custom/wttr", "group/music"],
+  "modules-center": ["hyprland/workspaces", "hyprland/window"],
   "modules-right": ["group/efficacy", "group/hardware", "group/system"],
   "group/efficacy": {
     "orientation": "horizontal",

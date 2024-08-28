@@ -71,8 +71,8 @@
 }
 
 #music {
-  background-color: @color11;
-  border-bottom-color: @color4;
+  background-color: @color2;
+  border-bottom-color: @color11;
 }
 
 #clock,
